@@ -24,7 +24,7 @@ def compress_pas_1mb():
     doc_lama = fitz.open(file_input)
     mat = fitz.Matrix(0.8, 0.8) # Resolusi dasar diturunkan sedikit agar aman
     
-    # --- PROSES 1: MENCARI KUALITAS TERBAIK ---
+    #PROSES 1: MENCARI KUALITAS TERBAIK
     low_q, high_q = 5, 95
     best_q = 5
     
@@ -53,7 +53,7 @@ def compress_pas_1mb():
         else:
             high_q = mid_q - 1 # Ukuran lebih dari 1MB, turunkan kualitas
             
-    # --- PROSES 2: GENERATE FILE DENGAN KUALITAS TERBAIK ---
+    # PROSES 2: GENERATE FILE
     doc_baru = fitz.open()
     for page in doc_lama:
         pix = page.get_pixmap(matrix=mat, alpha=False)
